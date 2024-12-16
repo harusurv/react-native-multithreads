@@ -17,7 +17,10 @@ public class RNThreadPackage implements ReactPackage {
     // Default constructor (no arguments)
     public RNThreadPackage() {
     }
-
+    // Constructor with ReactNativeHost only (no need for ReactPackage[])
+    public RNThreadPackage(ReactNativeHost host) {
+        this.reactNativeHost = host;
+    }
     // Constructor with arguments
     public RNThreadPackage(ReactNativeHost host, ReactPackage[] packages) {
         this.reactNativeHost = host;
