@@ -9,26 +9,28 @@ import com.facebook.react.uimanager.ViewManager;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
-
 public class RNThreadPackage implements ReactPackage {
 
     private ReactNativeHost reactNativeHost;
-    private ReactPackage additionalThreadPackages[];
+    private ReactPackage[] additionalPackages;
 
-    public RNThreadPackage(ReactNativeHost reactNativeHost, ReactPackage... additionalThreadPackages) {
-        this.reactNativeHost = reactNativeHost;
-        this.additionalThreadPackages = additionalThreadPackages;
+    // Default constructor (no arguments)
+    public RNThreadPackage() {
+    }
+
+    // Constructor with arguments
+    public RNThreadPackage(ReactNativeHost host, ReactPackage[] packages) {
+        this.reactNativeHost = host;
+        this.additionalPackages = packages;
+    }
+
+    @Override
+    public List<NativeModule> createNativeModules(ReactApplicationContext reactContext) {
+        return Arrays.asList(new RNThreadModule(reactContext, reactNativeHost, additionalPackages));
     }
 
     @Override
     public List<ViewManager> createViewManagers(ReactApplicationContext reactContext) {
         return Collections.emptyList();
-    }
-
-    @Override
-    public List<NativeModule> createNativeModules(ReactApplicationContext reactContext) {
-        return Arrays.<NativeModule>asList(
-                new RNThreadModule(reactContext, reactNativeHost, additionalThreadPackages)
-        );
     }
 }
