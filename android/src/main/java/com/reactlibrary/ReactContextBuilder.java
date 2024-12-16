@@ -102,7 +102,7 @@ public class ReactContextBuilder {
                     @Override
                     public Object call() throws Exception {
                         try {
-                            reactContext.initializeWithInstance(catalystInstance);
+                            //reactContext.initializeWithInstance(catalystInstance);
                             catalystInstance.runJSBundle();
                         } catch (Exception e) {
                             e.printStackTrace();
