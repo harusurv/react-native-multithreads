@@ -224,8 +224,11 @@ public void removeListeners(Integer count) {
   }
 
   private ReactInstanceManager getReactInstanceManager() {
+    if (reactNativeHost == null) {
+        throw new IllegalStateException("ReactNativeHost is not initialized.");
+    }
     return reactNativeHost.getReactInstanceManager();
-  }
+}
 
   private DevSupportManager getDevSupportManager() {
     return getReactInstanceManager().getDevSupportManager();
