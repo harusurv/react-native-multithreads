@@ -193,6 +193,7 @@ public void removeListeners(Integer count) {
     });
   }
 
+  @SuppressWarnings("deprecation")
   @Override
   public void onCatalystInstanceDestroy() {
     super.onCatalystInstanceDestroy();
