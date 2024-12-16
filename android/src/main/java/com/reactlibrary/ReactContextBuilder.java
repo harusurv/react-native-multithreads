@@ -74,7 +74,7 @@ public class ReactContextBuilder {
         JavaScriptExecutor jsExecutor = getJSExecutorFactory().create();
 
         // fresh new react context
-        final ReactApplicationContext reactContext = new ReactApplicationContext(parentContext);
+        final ReactApplicationContext reactContext = parentContext;
         if (devSupportManager != null) {
             reactContext.setJSExceptionHandler(devSupportManager);
         }
